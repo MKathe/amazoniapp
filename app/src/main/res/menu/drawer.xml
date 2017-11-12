@@ -7,27 +7,29 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/action_begin_order"
-            android:title="Mis Reportes"
-            android:icon="@mipmap/ic_launcher"/>
-        <item
-            android:id="@+id/action_purchase"
+            android:id="@+id/action_visited"
             android:visible="true"
             android:title="Visitantes"
-            android:icon="@mipmap/ic_launcher"/>
+            android:iconTint="@color/black"
+            android:icon="@drawable/ic_person_pin"/>
         <item
-            android:id="@+id/action_recipe"
+            android:id="@+id/action_pagantes"
             android:visible="true"
             android:title="Pagantes"
-            android:icon="@mipmap/ic_launcher"/>
+            android:icon="@drawable/ic_people"/>
         <item
-            android:id="@+id/action_recipe_mine"
+            android:id="@+id/action_recaudation"
             android:title="Recaudación"
-            android:icon="@mipmap/ic_launcher"/>
+            android:icon="@drawable/ic_attach_money"/>
         <item
-            android:id="@+id/action_orders"
+            android:id="@+id/action_avance"
             android:title="Avance"
-            android:icon="@mipmap/ic_launcher"/>
+            android:icon="@drawable/ic_timeline"/>
+
+        <item
+            android:id="@+id/action_reports"
+            android:title="Mis Reportes"
+            android:icon="@drawable/ic_attach_file"/>
 
     </group>
 
@@ -36,6 +38,6 @@
         <item
             android:id="@+id/action_signout"
             android:title="Cerrar Sesión"
-            android:icon="@mipmap/ic_launcher"/>
+            android:icon="@drawable/ic_exit_to_app"/>
     </group>
 </menu>

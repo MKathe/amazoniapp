@@ -1,4 +1,4 @@
-package com.openlab.amazonia.presentation.main;
+package com.openlab.amazonia.presentation.reports;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class VisitedActivity extends BaseActivity {
+public class ReportsActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -30,22 +30,22 @@ public class VisitedActivity extends BaseActivity {
 
         setSupportActionBar(toolbar);
 
-        toolbar.setTitle("Detalle Visitas");
+        toolbar.setTitle("Dashboard");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        VisitedFragment fragment = (VisitedFragment) getSupportFragmentManager()
+        ReportFragment fragment = (ReportFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.body);
 
         if (fragment == null) {
-            fragment = VisitedFragment.newInstance();
+            fragment = ReportFragment.newInstance();
 
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     fragment, R.id.body);
         }
 
         // Create the presenter
-        new VisitedPresenter(fragment, this);
+        new ReportPresenter(fragment, this);
     }
 
     @Override

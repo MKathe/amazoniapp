@@ -1,4 +1,4 @@
-package com.openlab.amazonia.presentation.main;
+package com.openlab.amazonia.presentation.recaudation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,7 +36,7 @@ import butterknife.Unbinder;
  * Created by katherine on 31/05/17.
  */
 
-public class MainFragment extends BaseFragment implements MainContract.View {
+public class RecaudationFragment extends BaseFragment implements RecaudationContract.View {
 
     @BindView(R.id.sp_mont)
     Spinner spMont;
@@ -53,7 +53,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     TextView subtitle;
     @BindView(R.id.btn_table)
     LinearLayout btnTable;
-    private MainContract.Presenter mPresenter;
+    private RecaudationContract.Presenter mPresenter;
     private ProgressDialogCustom mProgressDialogCustom;
 
     List<PieEntry> entries;
@@ -63,7 +63,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
 
     private int idMonth;
 
-    public MainFragment() {
+    public RecaudationFragment() {
         // Requires empty public constructor
     }
 
@@ -73,14 +73,14 @@ public class MainFragment extends BaseFragment implements MainContract.View {
 
     }
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
+    public static RecaudationFragment newInstance() {
+        return new RecaudationFragment();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new MainPresenter(this, getContext());
+        mPresenter = new RecaudationPresenter(this, getContext());
         mPresenter.loadChart();
         mPresenter.loadPay();
     }
@@ -88,7 +88,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_visited, container, false);
+        View root = inflater.inflate(R.layout.fragment_recaudation, container, false);
         unbinder = ButterKnife.bind(this, root);
         return root;
     }
@@ -211,7 +211,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     }
 
     @Override
-    public void setPresenter(MainContract.Presenter mPresenter) {
+    public void setPresenter(RecaudationContract.Presenter mPresenter) {
         this.mPresenter = mPresenter;
     }
 
@@ -254,7 +254,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
                 mPresenter.loadPayMonthChart(idMonth);
                 break;
             case R.id.btn_table:
-                next(getActivity(),null, VisitedActivity.class, false);
+                next(getActivity(),null, TableRecaudationActivity.class, false);
                 break;
         }
     }

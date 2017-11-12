@@ -1,4 +1,4 @@
-package com.openlab.amazonia.presentation.main;
+package com.openlab.amazonia.presentation.recaudation;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class VisitedActivity extends BaseActivity {
+public class TableRecaudationActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -34,18 +34,18 @@ public class VisitedActivity extends BaseActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        VisitedFragment fragment = (VisitedFragment) getSupportFragmentManager()
+        TableRecaudationFragment fragment = (TableRecaudationFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.body);
 
         if (fragment == null) {
-            fragment = VisitedFragment.newInstance();
+            fragment = TableRecaudationFragment.newInstance();
 
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     fragment, R.id.body);
         }
 
         // Create the presenter
-        new VisitedPresenter(fragment, this);
+        new TableRecaudationPresenter(fragment, this);
     }
 
     @Override

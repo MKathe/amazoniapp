@@ -19,6 +19,9 @@ import com.openlab.amazonia.core.BaseActivity;
 import com.openlab.amazonia.data.entities.UserEntity;
 import com.openlab.amazonia.data.local.SessionManager;
 import com.openlab.amazonia.presentation.auth.LoginActivity;
+import com.openlab.amazonia.presentation.pagantes.PagantesActivity;
+import com.openlab.amazonia.presentation.recaudation.RecaudationActivity;
+import com.openlab.amazonia.presentation.reports.ReportsActivity;
 import com.openlab.amazonia.utils.ActivityUtils;
 import com.openlab.amazonia.utils.CircleTransform;
 
@@ -106,21 +109,21 @@ public class MainActivity extends BaseActivity {
                         menuItem.setCheckable(false);
 
                         switch (menuItem.getItemId()) {
-                            case R.id.action_begin_order:
-                                //next(RecipeActivity.this,null, AboutUsActivity.class, false);
+                            case R.id.action_reports:
+                                next(MainActivity.this,null, ReportsActivity.class, false);
                                 break;
-                            case R.id.action_orders:
+                            case R.id.action_visited:
                                 //Intent intent = new Intent(RecipeActivity.this , ProfileActivity.class);
                                 //startActivityForResult(intent, 7);
                                 break;
-                            case R.id.action_recipe:
-                                //next(VisitedActivity.this,null, RecipeActivity.class, false);
+                            case R.id.action_pagantes:
+                                next(MainActivity.this,null, PagantesActivity.class, false);
                                 break;
-                            case R.id.action_recipe_mine:
-                                //next(RecipeActivity.this, null, SlideActivity.class, false);
+                            case R.id.action_recaudation:
+                                next(MainActivity.this,null, RecaudationActivity.class, false);
                                 break;
-                            case R.id.action_purchase:
-                                //next(VisitedActivity.this,null, OrdersActivity.class, false);
+                            case R.id.action_avance:
+                                //next(TableRecaudationActivity.this,null, OrdersActivity.class, false);
                                 //next(RecipeActivity.this,null, AboutUsActivity.class, false);
                                 break;
                             case R.id.action_signout:

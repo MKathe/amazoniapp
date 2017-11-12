@@ -69,7 +69,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/xxlarge_text"
-                android:text="VISITANTES REGISTRADOS" />
+                android:text="PAGANTES REGISTRADOS" />
 
             <TextView
                 android:id="@+id/subtitle"
@@ -100,23 +100,27 @@
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/piechart"
                         android:layout_width="match_parent"
-                        android:layout_height="230dp" />
+                        android:layout_height="250dp" />
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/piechart02"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="Cuadro N° 01: Tipo de Visitantes"
+                        android:text="Cuadro N° 04: Tipo de Visitantes que "
                         android:textSize="@dimen/smallest_text" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text=" que Ingresaron a las ANP (*)"
+                        android:text="Ingresaron a las ANP Recaudadoras (*)"
                         android:textSize="@dimen/smallest_text" />
-
 
                 </LinearLayout>
 
@@ -125,26 +129,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:id="@+id/piechart02"
-                        android:layout_width="match_parent"
-                        android:layout_height="230dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Cuadro N° 02: Distribución de"
-                        android:textSize="@dimen/smallest_text" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Pagantes y No Pagantes."
-                        android:textSize="@dimen/smallest_text" />
 
 
                 </LinearLayout>

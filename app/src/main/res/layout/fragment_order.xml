@@ -2,10 +2,68 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/recaudado"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textSize="@dimen/xxlarge_text"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"
+                android:text="INGRESE EL TOTAL
+ RECAUDADO DEL MES"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textSize="@dimen/xxlarge_text"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="ELIMINAR ÚLTIMO INGRESO"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/xxlarge_text"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="CONFIRMAR REPORTE"/>
 
 
-</LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -22,6 +22,11 @@
         <activity android:name="com.openlab.amazonia.presentation.auth.LoadActivity"/>
         <activity android:name=".presentation.main.MainActivity"/>
         <activity android:name=".presentation.main.VisitedActivity"/>
+        <activity android:name=".presentation.pagantes.PagantesActivity"/>
+        <activity android:name=".presentation.pagantes.TablePagantesActivity"/>
+        <activity android:name=".presentation.recaudation.RecaudationActivity"/>
+        <activity android:name=".presentation.recaudation.TableRecaudationActivity"/>
+        <activity android:name=".presentation.reports.ReportsActivity"/>
     </application>
 
 </manifest>
