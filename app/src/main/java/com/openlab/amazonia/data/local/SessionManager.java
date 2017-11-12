@@ -39,11 +39,11 @@ public class SessionManager {
         return preferences.getBoolean(IS_LOGIN, false);
     }
 
-   /* public void openSession(AccessTokenEntity token) {
+   public void openSession(String token) {
         editor.putBoolean(IS_LOGIN, true);
-        editor.putString(USER_TOKEN, token.getAccessToken());
+        editor.putString(USER_TOKEN, token);
         editor.commit();
-    }*/
+    }
 
     public void closeSession() {
         editor.putBoolean(IS_LOGIN, false);

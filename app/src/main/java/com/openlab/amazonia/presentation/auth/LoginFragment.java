@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.openlab.amazonia.R;
 import com.openlab.amazonia.core.BaseActivity;
 import com.openlab.amazonia.core.BaseFragment;
+import com.openlab.amazonia.data.entities.UserEntity;
+import com.openlab.amazonia.presentation.main.MainActivity;
+import com.openlab.amazonia.presentation.main.VisitedActivity;
 import com.openlab.amazonia.utils.ProgressDialogCustom;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -128,13 +131,13 @@ public class LoginFragment extends BaseFragment implements LoginContract.View, V
     }
 
     @Override
-    public void loginSuccessful(int id) {
+    public void loginSuccessful(UserEntity userEntity) {
 
-        Toast.makeText(getContext(), "Login exitoso", Toast.LENGTH_SHORT).show();
-        /*Bundle bundle = new Bundle();
-        bundle.putInt("id", id);
-        newActivityClearPreview(getActivity(), bundle, VisitedActivity.class);
-        showMessage("Login exitoso");*/
+        //Toast.makeText(getContext(), "Login exitoso", Toast.LENGTH_SHORT).show();
+        //Bundle bundle = new Bundle();
+        //bundle.putInt("id", id);
+        newActivityClearPreview(getActivity(), null, MainActivity.class);
+        showMessage("Login exitoso");
     }
 
     @Override

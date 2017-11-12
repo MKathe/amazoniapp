@@ -2,9 +2,17 @@ package com.openlab.amazonia.presentation.main;
 
 import android.content.Context;
 
+import com.openlab.amazonia.data.entities.ProductEntity;
+import com.openlab.amazonia.data.entities.ResponseVisited;
 import com.openlab.amazonia.data.local.SessionManager;
+import com.openlab.amazonia.data.remote.ServiceFactory;
+import com.openlab.amazonia.data.remote.request.ListRequest;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by katherine on 31/05/17.
@@ -26,37 +34,25 @@ public class VisitedPresenter implements VisitedContract.Presenter, ProductItem 
     }
     @Override
     public void clickItem(ProductEntity ordersEntity) {
-        mView.showDetailsProducts(ordersEntity);
 
     }
 
 
     @Override
     public void loadList() {
-        ArrayList<ProductEntity> list = new ArrayList<>();
-        list.add(new ProductEntity(1, "Producto 01"));
-        list.add(new ProductEntity(2, "Producto 02"));
-        list.add(new ProductEntity(3, "Producto 03"));
-
-        mView.getProducts(list);
-
-       /* ListRequest listRequest = ServiceFactory.createService(ListRequest.class);
-        Call<TrackHolderEntity<ReservationEntity>> reservation = listRequest.getReservation("Token " + token, page);
-        reservation.enqueue(new Callback<TrackHolderEntity<ReservationEntity>>() {
+        mView.setLoadingIndicator(true);
+        ListRequest listRequest = ServiceFactory.createService(ListRequest.class);
+        Call<ResponseVisited> reservation = listRequest.getListVisited("Token " + mSessionManager.getUserToken());
+        reservation.enqueue(new Callback<ResponseVisited>() {
             @Override
-            public void onResponse(Call<TrackHolderEntity<ReservationEntity>> call, Response<TrackHolderEntity<ReservationEntity>> response) {
+            public void onResponse(Call<ResponseVisited> call, Response<ResponseVisited> response) {
                 mView.setLoadingIndicator(false);
                 if (!mView.isActive()) {
                     return;
                 }
                 if (response.isSuccessful()) {
 
-                    if (response.body().getNext() != null) {
-                        currentPage = page +1;
-                    } else {
-                        currentPage = -1;
-                    }
-                    mView.getTickets(response.body().getResults());
+                    mView.getList(response.body().getList_anp());
 
                 } else {
                     mView.showErrorMessage("Error al obtener la lista");
@@ -64,14 +60,14 @@ public class VisitedPresenter implements VisitedContract.Presenter, ProductItem 
             }
 
             @Override
-            public void onFailure(Call<TrackHolderEntity<ReservationEntity>> call, Throwable t) {
+            public void onFailure(Call<ResponseVisited> call, Throwable t) {
                 if (!mView.isActive()) {
                     return;
                 }
                 mView.setLoadingIndicator(false);
                 mView.showErrorMessage("Error al conectar con el servidor");
             }
-        });*/
+        });
     }
 
     @Override

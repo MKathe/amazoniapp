@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.openlab.amazonia.R;
 import com.openlab.amazonia.core.BaseActivity;
 import com.openlab.amazonia.core.BaseFragment;
+import com.openlab.amazonia.data.entities.ProductEntity;
+import com.openlab.amazonia.data.entities.VisitedEntity;
 import com.openlab.amazonia.utils.ProgressDialogCustom;
 
 import java.util.ArrayList;
@@ -67,7 +69,6 @@ public class VisitedFragment extends BaseFragment implements VisitedContract.Vie
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_list, container, false);
-
         unbinder = ButterKnife.bind(this, root);
         return root;
     }
@@ -78,25 +79,18 @@ public class VisitedFragment extends BaseFragment implements VisitedContract.Vie
         mProgressDialogCustom = new ProgressDialogCustom(getContext(), "Obteniendo datos...");
         mLayoutManager = new LinearLayoutManager(getContext());
         rvList.setLayoutManager(mLayoutManager);
-        mAdapter = new VisitedAdapter(new ArrayList<ProductEntity>(), getContext(), (ProductItem) mPresenter);
+        mAdapter = new VisitedAdapter(new ArrayList<VisitedEntity>(), getContext(), (ProductItem) mPresenter);
         rvList.setAdapter(mAdapter);
     }
 
     @Override
-    public void getProducts(ArrayList<ProductEntity> list) {
+    public void getList(ArrayList<VisitedEntity> list) {
         mAdapter.setItems(list);
 
         if (list != null) {
             noList.setVisibility((list.size() > 0) ? View.GONE : View.VISIBLE);
         }
 
-    }
-
-    @Override
-    public void showDetailsProducts(ProductEntity productEntity) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("productEntity", productEntity);
-        //next(getActivity(), bundle, TicketsDetailActivity.class, false);
     }
 
     @Override

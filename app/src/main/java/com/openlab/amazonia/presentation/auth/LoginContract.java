@@ -11,7 +11,7 @@ import com.openlab.amazonia.data.entities.UserEntity;
 
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
-        void loginSuccessful(int id);
+        void loginSuccessful(UserEntity userEntity);
         void errorLogin(String msg);
        // void showDialogForgotPassword();
         //void showSendEmail(String email);
@@ -20,7 +20,7 @@ public interface LoginContract {
 
     interface Presenter extends BasePresenter {
         void loginUser(String username, String password);
-        //void getProfile(AccessTokenEntity token);
+        void getProfile(int id);
         //void openSession(AccessTokenEntity token, UserEntity userEntity);
        // void sendEmail(String email);
 

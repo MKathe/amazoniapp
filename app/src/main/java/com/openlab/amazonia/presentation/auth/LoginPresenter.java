@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.openlab.amazonia.data.entities.AccessTokenEntity;
+import com.openlab.amazonia.data.entities.ResponseUser;
 import com.openlab.amazonia.data.entities.UserEntity;
 import com.openlab.amazonia.data.local.SessionManager;
 import com.openlab.amazonia.data.remote.ServiceFactory;
@@ -52,8 +53,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                     return;
                 }
                 if (response.isSuccessful()) {
-                    mView.setLoadingIndicator(false);
-                    mView.loginSuccessful(response.body().getAccount_id());
+                    mSessionManager.openSession(response.body().getToken());
+                    getProfile(response.body().getAccount_id());
                     //AccessToken.setCurrentAccessToken(null);
                     //getProfile(response.body());
 
@@ -74,19 +75,19 @@ public class LoginPresenter implements LoginContract.Presenter {
         });
     }
 
-    /*@Override
-    public void getProfile(final AccessTokenEntity token) {
+    @Override
+    public void getProfile(int id) {
         LoginRequest loginService =
                 ServiceFactory.createService(LoginRequest.class);
-        Call<UserEntity> call = loginService.getUser("Token "+ token.getAccessToken());
-        call.enqueue(new Callback<UserEntity>() {
+        Call<ResponseUser> call = loginService.getUser(id);
+        call.enqueue(new Callback<ResponseUser>() {
             @Override
-            public void onResponse(Call<UserEntity> call, Response<UserEntity> response) {
+            public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
                 if (response.isSuccessful()) {
                     if (!mView.isActive()) {
                         return;
                     }
-                    openSession(token, response.body());
+                    openSession(response.body().getUser());
 
                 } else {
                     if (!mView.isActive()) {
@@ -98,7 +99,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
 
             @Override
-            public void onFailure(Call<UserEntity> call, Throwable t) {
+            public void onFailure(Call<ResponseUser> call, Throwable t) {
                 if (!mView.isActive()) {
                     return;
                 }
@@ -106,8 +107,13 @@ public class LoginPresenter implements LoginContract.Presenter {
                 mView.errorLogin("Fallo al traer datos, comunicarse con su administrador");
             }
         });
-    }*/
+    }
+    public void openSession(UserEntity userEntity) {
 
+        mSessionManager.setUser(userEntity);
+        mView.setLoadingIndicator(false);
+        mView.loginSuccessful(userEntity);
+    }
   /*
 
     @Override

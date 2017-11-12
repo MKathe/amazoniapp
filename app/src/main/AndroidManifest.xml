@@ -20,9 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.openlab.amazonia.presentation.auth.LoadActivity"/>
-        <activity android:name="com.openlab.amazonia.presentation.main.VisitedActivity"/>
-        <activity android:name="com.openlab.amazonia.presentation.orders.OrdersActivity"/>
-        <activity android:name="com.openlab.amazonia.presentation.recipes.RecipeActivity"/>
+        <activity android:name=".presentation.main.MainActivity"/>
+        <activity android:name=".presentation.main.VisitedActivity"/>
     </application>
 
 </manifest>

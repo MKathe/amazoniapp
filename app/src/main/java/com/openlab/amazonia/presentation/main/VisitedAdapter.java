@@ -8,10 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.openlab.amazonia.R;
+import com.openlab.amazonia.data.entities.ProductEntity;
+import com.openlab.amazonia.data.entities.VisitedEntity;
 import com.openlab.amazonia.utils.OnClickListListener;
 
 import java.util.ArrayList;
@@ -26,14 +27,14 @@ import butterknife.ButterKnife;
 public class VisitedAdapter extends RecyclerView.Adapter<VisitedAdapter.ViewHolder> implements OnClickListListener {
     private static final String TAG = "ELIMINAR";
 
-    private ArrayList<ProductEntity> list;
+    private ArrayList<VisitedEntity> list;
     private ProductEntity item;
     private ArrayList<Boolean> status;
     private Context context;
     private ProductItem orderItem;
 
 
-    public VisitedAdapter(ArrayList<ProductEntity> list, Context context, ProductItem orderItem) {
+    public VisitedAdapter(ArrayList<VisitedEntity> list, Context context, ProductItem orderItem) {
         this.list = list;
         //setStatus();
         this.context = context;
@@ -49,19 +50,22 @@ public class VisitedAdapter extends RecyclerView.Adapter<VisitedAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View root = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
+        View root = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_visited, parent, false);
         return new ViewHolder(root, this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final ProductEntity productEntity = list.get(position);
+        final VisitedEntity productEntity = list.get(position);
 
         if (productEntity == null) {
             return;
         }
-        holder.tvProductName.setText(productEntity.getName());
+        holder.tvName.setText(productEntity.getAnp());
+        holder.tvVariacion.setText(String.valueOf(productEntity.getPercent()));
+        holder.ammount2016.setText(String.valueOf(productEntity.getYear_2016()));
+        holder.ammount2017.setText(String.valueOf(productEntity.getYear_2017()));
         /*holder.tvPrice.setText(schedulesEntity.getPriceNormal());
         holder.tvQuantity.setText(schedulesEntity.getMaxUser());
         holder.imEdit.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +100,7 @@ public class VisitedAdapter extends RecyclerView.Adapter<VisitedAdapter.ViewHold
         return list.size();
     }
 
-    public void setPlaceItem(ProductEntity productEntity) {
+    public void setPlaceItem(VisitedEntity productEntity) {
         this.list.clear();
         if (productEntity != null) {
             this.list.add(productEntity);
@@ -104,7 +108,7 @@ public class VisitedAdapter extends RecyclerView.Adapter<VisitedAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    public void setItems(ArrayList<ProductEntity> items) {
+    public void setItems(ArrayList<VisitedEntity> items) {
         list = items;
         notifyDataSetChanged();
     }
@@ -125,12 +129,15 @@ public class VisitedAdapter extends RecyclerView.Adapter<VisitedAdapter.ViewHold
 
         private OnClickListListener onClickListListener;
 
-        @BindView(R.id.iv_product)
-        ImageView ivProduct;
-        @BindView(R.id.tv_product_name)
-        TextView tvProductName;
-        @BindView(R.id.tv_quantity)
-        TextView tvQuantity;
+        @BindView(R.id.tv_name)
+        TextView tvName;
+        @BindView(R.id.tv_variacion)
+        TextView tvVariacion;
+        @BindView(R.id.ammount_2016)
+        TextView ammount2016;
+        @BindView(R.id.ammount_2017)
+        TextView ammount2017;
+
         ViewHolder(View itemView, OnClickListListener onClickListListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
