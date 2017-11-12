@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_begin_order"
+            android:title="Mis Reportes"
+            android:icon="@mipmap/ic_launcher"/>
+        <item
+            android:id="@+id/action_purchase"
+            android:visible="true"
+            android:title="Visitantes"
+            android:icon="@mipmap/ic_launcher"/>
+        <item
+            android:id="@+id/action_recipe"
+            android:visible="true"
+            android:title="Pagantes"
+            android:icon="@mipmap/ic_launcher"/>
+        <item
+            android:id="@+id/action_recipe_mine"
+            android:title="Recaudación"
+            android:icon="@mipmap/ic_launcher"/>
+        <item
+            android:id="@+id/action_orders"
+            android:title="Avance"
+            android:icon="@mipmap/ic_launcher"/>
+
+    </group>
+
+    <group
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/action_signout"
+            android:title="Cerrar Sesión"
+            android:icon="@mipmap/ic_launcher"/>
+    </group>
+</menu>
