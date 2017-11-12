@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Turistea.iml" filepath="$PROJECT_DIR$/Turistea.iml" />
+      <module fileurl="file://D:\AndroidProyects\amazoniapp\Turistea.iml" filepath="D:\AndroidProyects\amazoniapp\Turistea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amazoniapp.iml" filepath="$PROJECT_DIR$/amazoniapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

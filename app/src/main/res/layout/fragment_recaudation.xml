@@ -148,23 +148,31 @@
 
 
             <LinearLayout
-                android:layout_marginTop="20dp"
                 android:id="@+id/btn_table"
                 android:layout_below="@id/chartcontainer"
                 android:layout_width="match_parent"
                 android:background="@color/cream"
                 android:layout_alignParentBottom="true"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:layout_weight="3"
                     android:layout_gravity="center"
                     android:textAllCaps="true"
                     android:text="Ver Tabla"
                     android:padding="5dp"
                     android:textSize="@dimen/xlarge_text" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_action_download"/>
 
             </LinearLayout>
 

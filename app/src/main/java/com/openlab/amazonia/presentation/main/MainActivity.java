@@ -38,9 +38,6 @@ public class MainActivity extends BaseActivity {
     private ActionBarDrawerToggle mDrawerToggle;
 
     public TextView tv_username;
-    public TextView tv_email;
-    public UserEntity mUser;
-    public ImageView imageView;
     private MainFragment fragment;
 
     @Override
@@ -81,11 +78,7 @@ public class MainActivity extends BaseActivity {
         mDrawerToggle.syncState();
         View header = navigationView.getHeaderView(0);
 
-        tv_username = (TextView) header.findViewById(R.id.tv_fullnanme);
-        tv_email = (TextView) header.findViewById(R.id.tv_email);
-        imageView = (ImageView) header.findViewById(R.id.imageView);
         //EventBus.getDefault().register(this);
-        initHeader();
 
         fragment = (MainFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.body);
@@ -110,17 +103,17 @@ public class MainActivity extends BaseActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.action_reports:
-                                next(MainActivity.this,null, ReportsActivity.class, false);
+                                next(MainActivity.this, null, ReportsActivity.class, false);
                                 break;
                             case R.id.action_visited:
                                 //Intent intent = new Intent(RecipeActivity.this , ProfileActivity.class);
                                 //startActivityForResult(intent, 7);
                                 break;
                             case R.id.action_pagantes:
-                                next(MainActivity.this,null, PagantesActivity.class, false);
+                                next(MainActivity.this, null, PagantesActivity.class, false);
                                 break;
                             case R.id.action_recaudation:
-                                next(MainActivity.this,null, RecaudationActivity.class, false);
+                                next(MainActivity.this, null, RecaudationActivity.class, false);
                                 break;
                             case R.id.action_avance:
                                 //next(TableRecaudationActivity.this,null, OrdersActivity.class, false);
@@ -147,39 +140,11 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    public void initHeader() {
-
-        mUser = mSessionManager.getUserEntity();
-        if (mUser != null) {
-            tv_username.setText(mUser.getFullName());
-            tv_username.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //next(RecipeActivity.this, null, ProfileActivity.class, false);
-                }
-            });
-            tv_email.setText(mUser.getEmail());
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //next(RecipeActivity.this, null, ProfileActivity.class, false);
-                }
-            });
-           /* if (mUser.getPicture() != null) {
-                Glide.with(this)
-                        .load(mSessionManager.getUserEntity().getPicture())
-                        .transform(new CircleTransform(this))
-                        .into(imageView);
-            }*/
-        }
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case 200:
-                    initHeader();
                     break;
                 case 7:
                     /*Glide.with(this)
@@ -203,6 +168,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       // EventBus.getDefault().unregister(this);
+        // EventBus.getDefault().unregister(this);
     }
 }

@@ -41,6 +41,7 @@
     <color name="cream">#ececec</color>
     <color name="transparent">#00ececec</color>
     <color name="error_red">#E0293F</color>
+    <color name="colorPrimaryText">#1D1D1B</color>
 
 
 </resources>

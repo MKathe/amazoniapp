@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Market App</string>
+    <string name="app_name">Perú Natural Admin</string>
     <string name="pick_image_intent_text">Elegir imagen</string>
     <string name="perm_camera">Se necesitan permisos para la cámara</string>
     <string name="demo_min_label">min</string>
