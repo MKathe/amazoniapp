@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceFactory {
 
     public static final String API_BASE_URL = "http://162.243.216.13:8060/api/v1/";
-
+                                                //http://162.243.216.13:8060/api/v1/
 // set your desired log level
 
     private static OkHttpClient httpClient = new OkHttpClient();

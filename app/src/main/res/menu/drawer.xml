@@ -12,24 +12,22 @@
             android:title="Visitantes"
             android:iconTint="@color/black"
             android:icon="@drawable/ic_person_pin"/>
+
         <item
-            android:id="@+id/action_pagantes"
+            android:id="@+id/action_compare"
+            android:title="Comparativo"
+            android:icon="@drawable/ic_compare_arrows"/>
+        <item
+            android:id="@+id/action_acumulativo"
             android:visible="true"
-            android:title="Pagantes"
-            android:icon="@drawable/ic_people"/>
-        <item
-            android:id="@+id/action_recaudation"
-            android:title="Recaudación"
-            android:icon="@drawable/ic_attach_money"/>
-        <item
-            android:id="@+id/action_avance"
-            android:title="Avance"
-            android:icon="@drawable/ic_timeline"/>
+            android:title="Acumulativo "
+            android:icon="@drawable/ic_details"/>
 
         <item
             android:id="@+id/action_reports"
-            android:title="Mis Reportes"
-            android:icon="@drawable/ic_attach_file"/>
+            android:visible="true"
+            android:title="Reportes "
+            android:icon="@drawable/ic_file_download"/>
 
     </group>
 

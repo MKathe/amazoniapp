@@ -68,7 +68,6 @@ public class SessionManager {
             String user = gson.toJson(userEntity);
             editor.putString(USER_JSON, user);
         }
-        editor.putBoolean(IS_LOGIN, true);
         editor.commit();
     }
 

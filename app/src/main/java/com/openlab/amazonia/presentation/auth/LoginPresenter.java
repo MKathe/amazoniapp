@@ -83,16 +83,16 @@ public class LoginPresenter implements LoginContract.Presenter {
         call.enqueue(new Callback<ResponseUser>() {
             @Override
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
+
+                if (!mView.isActive()) {
+                    return;
+                }
+                mView.setLoadingIndicator(false);
                 if (response.isSuccessful()) {
-                    if (!mView.isActive()) {
-                        return;
-                    }
                     openSession(response.body().getUser());
 
                 } else {
-                    if (!mView.isActive()) {
-                        return;
-                    }
+
                     mView.setLoadingIndicator(false);
                     mView.errorLogin("Ocurrió un error al cargar su perfil");
                 }
@@ -109,7 +109,6 @@ public class LoginPresenter implements LoginContract.Presenter {
         });
     }
     public void openSession(UserEntity userEntity) {
-
         mSessionManager.setUser(userEntity);
         mView.setLoadingIndicator(false);
         mView.loginSuccessful(userEntity);

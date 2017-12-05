@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/foreign"
+                    android:layout_below="@id/national"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Extranjeros: "
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/national"
+                    android:layout_below="@id/tv_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nacionales: "
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/exonerated"
+                    android:layout_below="@id/foreign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Exonerados: "
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_foreign"
+                    android:layout_below="@id/tv_national"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/green"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_national"
+                    android:layout_below="@id/tv_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/green"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_exonerated"
+                    android:layout_below="@id/tv_foreign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/green"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_below="@id/tv_last_national"
+                    android:id="@+id/tv_last_foreign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100 "
+                    android:textColor="@color/orange"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_last_national"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/orange"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_last_exonerated"
+                    android:layout_below="@id/tv_last_foreign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100 "
+                    android:textColor="@color/orange"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_foreign_percent"
+                    android:layout_below="@id/tv_national_percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10%"
+                    android:textColor="@color/teal"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_national_percent"
+                    android:layout_below="@id/tv_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20%"
+                    android:textColor="@color/teal"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tv_exonerated_percent"
+                    android:layout_below="@id/tv_foreign_percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30%"
+                    android:textColor="@color/teal"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/container"
+            android:id="@+id/titles"
+            android:weightSum="3"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Actual"
+                android:textColor="@color/green"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Anterior"
+                android:textColor="@color/orange"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:textColor="@color/teal"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.openlab.amazonia.R;
 import com.openlab.amazonia.core.BaseActivity;
 import com.openlab.amazonia.data.local.SessionManager;
-import com.openlab.amazonia.presentation.main.VisitedActivity;
+import com.openlab.amazonia.presentation.datalist.MainActivity;
 
 
 /**
@@ -25,9 +25,9 @@ public class LoadActivity extends BaseActivity {
 
     private void initialProcess() {
         SessionManager mSessionManager = new SessionManager(getApplicationContext());
-        if(!mSessionManager.isLogin()){
+        if(mSessionManager.isLogin()){
 
-            next(this,null, VisitedActivity.class, true);
+            next(this,null, MainActivity.class, true);
         }else{
             next(this,null, LoginActivity.class, true);
         }

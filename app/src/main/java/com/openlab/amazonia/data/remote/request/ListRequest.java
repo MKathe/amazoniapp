@@ -2,8 +2,11 @@ package com.openlab.amazonia.data.remote.request;
 
 
 import com.openlab.amazonia.data.entities.ChartEntity;
+import com.openlab.amazonia.data.entities.ListEntity;
 import com.openlab.amazonia.data.entities.PayChartEntity;
 import com.openlab.amazonia.data.entities.ResponseVisited;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,24 +19,24 @@ import retrofit2.http.Query;
  */
 
 public interface ListRequest {
-    @GET("chart/")
+    @GET("reports/chart/visits/")
     Call<ChartEntity> getChart(@Header("Authorization") String token);
 
-    @GET("chart/{id}")
+    @GET("reports/chart/visits/{month}")
     Call<ChartEntity> getChartByMonth(@Header("Authorization") String token,
-                                    @Query("month") int idMonth);
+                                      @Query("month") int idMonth);
 
 
-    @GET("chart-payers/")
-    Call<PayChartEntity> getPayChart(@Header("Authorization") String token);
 
-    @GET("chart-payers/{id}")
-    Call<PayChartEntity> getPayChartByMonth(@Header("Authorization") String token,
-                                            @Query("month") int idMonth);
+    @GET("reports/visits-anual/{month}")
+    Call<ResponseVisited> getListVisited(@Header("Authorization") String token,
+                                         @Query("month") int idMonth);
 
-
-    @GET("visits-anual/")
-    Call<ResponseVisited> getListVisited(@Header("Authorization") String token);
+    @GET("reports/visits-anual-period/{month}")
+    Call<ResponseVisited> getListAcumulado(@Header("Authorization") String token,
+                                           @Query("month") int idMonth);
+    @GET("visits/")
+    Call<ArrayList<ListEntity>> getListData(@Query("approved") boolean approved);
 
     /*@GET("listdestinybycities/{pk}/")
     Call<TrackHolderEntity<DestinyTravelEntity>> getDestiny(@Path("pk") int id,
